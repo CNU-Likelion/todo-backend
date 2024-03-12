@@ -1,6 +1,7 @@
 package backend.likelion.todos.member.domain;
 
 import lombok.Getter;
+import backend.likelion.todos.member.domain.MemberRepository;
 
 @Getter
 public class Member {
@@ -23,6 +24,10 @@ public class Member {
     }
 
     public void signup(MemberValidator validator) {
-        // TODO [1단계] validator를 사용하여 닉네임 중복 검사를 진행하세요.
+        if (validator.validateDuplicatedUsername(this.nickname)) {
+            System.out.println("가입 성공 : " + this.nickname);
+        } else {
+            System.out.println("닉네임이 이미 사용 중입니다: " + this.nickname);
+        }
     }
 }

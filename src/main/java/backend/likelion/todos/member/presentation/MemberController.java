@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RequestMapping("/members")
-// TODO [1단계] 이 부분은 멤버의 컨트롤러 부분입니다. 어떤 컴포넌트를 써야할까요?
-// TODO [1단계] 생성자를 직접 구현하지 않고 쓰는 방법을 알아보세요. Constructor
+@RestController
+@RequiredArgsConstructor
 public class MemberController {
 
     private final MemberService memberService;
