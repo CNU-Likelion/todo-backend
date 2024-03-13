@@ -42,6 +42,6 @@ public class GoalRepository {
     // 특정 회원 ID에 속하는 모든 목표를 찾아 리스트로 반환합니다.
     public List<Goal> findAllByMemberId(Long memberId) {
         // TODO [2단계] goals 맵에서 memberId와 일치하는 모든 목표를 스트림을 사용해 찾아, 리스트로 반환하세요.
-        return null;
+        return goals.values().stream().filter(it -> it.getMember().getId().equals(memberId)).toList();
     }
 }
