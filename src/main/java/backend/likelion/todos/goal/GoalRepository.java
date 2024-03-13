@@ -23,12 +23,13 @@ public class GoalRepository {
     // 주어진 id로 목표를 찾아 Optional로 반환합니다.
     public Optional<Goal> findById(Long id) {
         // TODO [2단계] id를 사용하여 goals 맵에서 목표를 찾고, 찾은 목표를 Optional로 감싸서 반환하세요.
-        return null;
+        return Optional.ofNullable(goals.get(id));
     }
 
     // 모든 목표를 삭제합니다.
     public void clear() {
         // TODO [2단계] goals 맵의 모든 내용을 제거하세요.
+
     }
 
     // 주어진 목표를 삭제합니다.
