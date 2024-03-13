@@ -27,9 +27,13 @@ public class GoalService {
     // 주어진 정보로 목표를 업데이트합니다.
     public void update(Long goalId, String name, String color, Long memberId) {
         // TODO [2단계] memberId를 사용하여 회원 정보를 조회하고, 없으면 "회원 정보가 없습니다." 메시지와 함께 NotFoundException을 발생시키세요.
+        Member member = memberRepository.findById(memberId).orElseThrow(()-> new NotFoundException("회원 정보가 없습니다."));
         // TODO [2단계] goalId를 사용하여 목표 정보를 조회하고, 없으면 "목표 정보가 없습니다." 메시지와 함께 NotFoundException을 발생시키세요.
+        Goal goal = goalRepository.findById(goalId).orElseThrow(() -> new NotFoundException("목표 정보가 없습니다."));
         // TODO [2단계] 조회한 목표가 주어진 회원의 것인지 검증하세요.
+        goal.validateMember(member);
         // TODO [2단계] 목표의 name과 color를 업데이트하세요.
+        goal.update(name, color);
     }
 
     // 목표를 삭제합니다.
