@@ -51,7 +51,8 @@ public class GoalService {
     // 특정 회원 ID에 속하는 모든 목표를 조회하여 GoalResponse 리스트로 반환합니다.
     public List<GoalResponse> findAllByMemberId(Long memberId) {
         // TODO [2단계] memberId를 사용하여 모든 목표를 조회하세요.
+        List<Goal> goals = goalRepository.findAllByMemberId(memberId);
         // TODO [2단계] 조회된 목표 리스트를 GoalResponse 리스트로 변환하여 반환하세요.
-        return null;
+        return goals.stream().map(it -> new GoalResponse());
     }
 }
