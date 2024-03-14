@@ -15,7 +15,7 @@ public class JwtGenerator {
         // 현재 시간 및 만료 시간 설정
         long nowMillis = System.currentTimeMillis();
         Date now = new Date(nowMillis);
-
+    //hbhv
         // 1시간 후 만료
         Date exp = new Date(nowMillis + 3600000);
 
