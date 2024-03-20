@@ -27,7 +27,13 @@ public class JwtService {
         // TODO [5단계] 현재 시간과 설정된 만료 시간을 사용하여 만료 날짜를 설정하세요.
         // TODO [5단계] memberId를 클레임으로 추가하세요.
         // TODO [5단계] 설정된 알고리즘으로 토큰을 서명하고 반환하세요.
-        return null;
+        return JWT.create()
+                .withExpiresAt(new Date(
+                        accessTokenExpirationDayToMills + System.currentTimeMillis()
+                ))
+                .withIssuedAt(new Date())
+                .withClaim("memberId", memberId)
+                .sign(algorithm);
     }
 
     // 토큰에서 회원 ID를 추출합니다.
